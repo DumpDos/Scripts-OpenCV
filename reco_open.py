@@ -7,14 +7,6 @@ import argparse
 import imutils
 import time
 import cv2
-
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from email.mime.base import MIMEBase
-from email import encoders
-import ntpath
-import pyautogui
  
 ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--prototxt", required=True,
