@@ -18,12 +18,24 @@ ap.add_argument("-c", "--confidence", type=float, default=0.2,
 args = vars(ap.parse_args())
  
 
-CLASSES = ["arriere-plan", "avion", "velo", "oiseau", "bateau",
-	"bouteille", "autobus", "voiture", "chat", "chaise", "vache", "table",
-	"chien", "cheval", "moto", "personne", "plante en pot", "mouton",
-	"sofa", "train", "moniteur"]
-COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
- 
+CLASSES = ["arriere-plan", "avion", "velo", "bateau",
+	"autobus", "moto", "train",]
+
+# Classes avion
+UNDER_CLASSES_PLANES = ["Commercial", "Tourisme", "Militaire"]
+COLORS_planes = np.random.uniform(0, 255, size=(len(CLASSES), 3))
+
+# Classes bateau
+UNDER_CLASSES_BOAT = ["Commercial", "Tourisme", "Militaire"]
+COLORS_boat = np.random.uniform(0, 128, size=(len(CLASSES), 3))
+
+# Classes autobus
+UNDER_CLASSES_TRUCK = ["Autobus", "Bus", "Camion"]
+COLORS_truck = np.random.uniform(0, 64, size=(len(CLASSES), 3))
+
+# Classes moto
+UNDER_CLASSES_MOTO = ["Autobus", "Bus", "Camion"]
+COLORS_moto = np.random.uniform(0, 32, size=(len(CLASSES), 3))
 
 print(" ...chargement du modèle...")
 net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
